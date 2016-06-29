@@ -119,7 +119,6 @@ public class MainGameLoop {
         dragon.getTexture().setShineDamper(10.0f);
         dragon.getTexture().setReflectivity(1);
         
-
         Random random = new Random();
         for (int i = 0; i < 60; i++) {
                 if (i % 3 == 0) {
