@@ -9,25 +9,34 @@ import displayManager.Display;
 import displayManager.KeyboardHandler;
 import displayManager.MouseHandler;
 import displayManager.MouseKeyHandler;
+
 import entities.Camera;
 import entities.Entity;
 import entities.Lamp;
 import entities.Light;
 import entities.Player;
+
 import guis.GuiRenderer;
 import guis.GuiTexture;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
 import models.RawModel;
 import models.TexturedModel;
+
 import objConverter.OBJFileLoader;
+
 import org.joml.Vector2f;
 import org.joml.Vector3f;
+
 import static org.lwjgl.glfw.GLFW.*;
 import renderEngine.Loader;
 import renderEngine.MasterRenderer;
+
 import terrains.Terrain;
+
 import textures.ModelTexture;
 import textures.TerrainTexture;
 import textures.TerrainTexturePack;
@@ -50,15 +59,12 @@ public class MainGameLoop {
     
     public static void main(String[] args){        
         init();
-        
         loop();
-        
         dispose();
     }
     
 
     private static void loop(){
-        
         
         Loader loader= new Loader();
         
@@ -74,16 +80,13 @@ public class MainGameLoop {
         
         
         
-        
-        
-        
-        //List<GuiTexture> guis = new ArrayList<GuiTexture>();
+        // *********LIGHTS**********
         List<Light> lights= new ArrayList<Light>();
         lights.add(new Light(new Vector3f(100,1000,-200), new Vector3f(.4f,.4f,.4f)));
         lights.add(new Light(new Vector3f(100,100,0), new Vector3f(0f,0f,10f),new Vector3f(1.0f,.01f,.001f)));
         lights.add(new Light(new Vector3f(0,100,-100), new Vector3f(10f,0f,0f),new Vector3f(1.0f,.01f,.001f)));
         //lights.add(new Light(new Vector3f(0,100,0), new Vector3f(0f,10f,0f),new Vector3f(1.0f,.1f,.001f)));
-        // *********TERRAIN TEXTURE STUFF**********
+        // *********TERRAIN TEXTURE**********
         
         TerrainTexture backgroundTexture = new TerrainTexture(loader.loadTexture("grass.png"));
         TerrainTexture rTexture = new TerrainTexture(loader.loadTexture("dirt.png"));
@@ -142,6 +145,7 @@ public class MainGameLoop {
         }
         float y = terrains.get(0).getHeightOfTerrain(75, -75);
         entities.add(new Entity(dragon, new Vector3f(75, y, -75), 0, 0, 0, 1f));
+        
         // *********LAMPS**********
         //new Light(new Vector3f(0,100,0), new Vector3f(0f,10f,0f),new Vector3f(1.0f,.1f,.001f))
         Lamp lamp = new Lamp(new Vector3f(0,100,0), new Vector3f(0f,3f,0f),new Vector3f(1.0f,.01f,.002f), random.nextFloat() * 6.28f, terrains.get(0), 1f);

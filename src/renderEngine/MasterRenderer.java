@@ -8,7 +8,7 @@ package renderEngine;
 import entities.Camera;
 import entities.Entity;
 import entities.Light;
-import game_test.Startup;
+import game_test._Startup;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -106,8 +106,8 @@ public class MasterRenderer {
     }
     
     private void creatProjectionMatrix(){
-        float aspectRatio = (float) Startup.width / (float) Startup.height;
-        float y_scale = (float) ((1f / Math.tan(Math.toRadians(Startup.FOV / 2f))) * aspectRatio);
+        float aspectRatio = (float) _Startup.width / (float) _Startup.height;
+        float y_scale = (float) ((1f / Math.tan(Math.toRadians(_Startup.FOV / 2f))) * aspectRatio);
         float x_scale = y_scale / aspectRatio;
         float frustum_length = FAR_PLANE - NEAR_PLANE;
  
